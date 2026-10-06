@@ -257,5 +257,16 @@
         </div>
     </div>
 
+<!-- Script per forzare lo scroll automatico allo shop -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#shop') {
+                const shopSection = document.getElementById('shop');
+                if (shopSection) {
+                    shopSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
 </body>
 </html>
