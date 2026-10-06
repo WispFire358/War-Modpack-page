@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il mio Shop</title>
+    <style>
+        /* Stili generali */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* 1. SEZIONE SHOP ABBONAMENTI (3 pacchetti) */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card.popular {
+            border: 2px solid #3498db;
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3498db;
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .card h3 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .price {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #3498db;
+            margin: 20px 0;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            color: #666;
+            text-align: left;
+        }
+
+        .card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2ecc71;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #27ae60;
+        }
+
+        /* 2. PRIMA SEZIONE SOTTOSTANTE (3 riquadri fissi) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .feature-box h4 {
+            color: #3498db;
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        /* 3. SECONDA SEZIONE SOTTOSTANTE (3 riquadri scorrevoli) */
+        .scroll-section {
+            background-color: #eef2f3;
+            padding: 60px 0;
+        }
+
+        .scroll-container-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .scroll-container {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 20px;
+        }
+
+        /* Nascondi la barra di scorrimento ma mantieni la funzionalità */
+        .scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .scroll-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .scroll-card h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SEZIONE 1: SHOP ABBONAMENTI -->
+    <div class="section">
+        <h2>I Nostri Abbonamenti</h2>
+        <div class="shop-grid">
+            <!-- Pacchetto 1 -->
+            <div class="card">
+                <h3>Base</h3>
+                <div class="price">€9.99<span>/mese</span></div>
+                <ul>
+                    <li>✔ Accesso ai contenuti standard</li>
+                    <li>✔ Supporto via email</li>
+                    <li>✖ Aggiornamenti prioritari</li>
+                </ul>
+                <a href="#" class="btn">Acquista</a>
+            </div>
+
+            <!-- Pacchetto 2 (In evidenza) -->
+            <div class="card popular">
+                <div class="badge">Più venduto</div>
+                <h3>Pro</h3>
+                <div class="price">€19.99<span>/mese</span></div>
+                <ul>
+                    <li>✔ Accesso a tutti i contenuti</li>
+                    <li>✔ Supporto prioritario 24/7</li>
+                    <li>✔ Aggiornamenti anticipati</li>
+                </ul>
+                <a href="#" class="btn">Acquista</a>
+            </div>
+
+            <!-- Pacchetto 3 -->
+            <div class="card">
+                <h3>VIP</h3>
+                <div class="price">€39.99<span>/mese</span></div>
+                <ul>
+                    <li>✔ Tutto incluso illimitato</li>
+                    <li>✔ Assistenza dedicata 1-a-1</li>
+                    <li>✔ Funzionalità esclusive beta</li>
+                </ul>
+                <a href="#" class="btn">Acquista</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEZIONE 2: 3 RIQUADRI FISSI -->
+    <div class="section" style="padding-top: 0;">
+        <h2>Perché Sceglierci</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <h4>🚀 Massima Velocità</h4>
+                <p>Infrastruttura ottimizzata per garantirti prestazioni al top senza attese e senza rallentamenti.</p>
+            </div>
+            <div class="feature-box">
+                <h4>🔒 Sicurezza Garantita</h4>
+                <p>I tuoi dati e i tuoi pagamenti sono protetti dai più alti standard di crittografia attuali.</p>
+            </div>
+            <div class="feature-box">
+                <h4>💬 Supporto Dedicato</h4>
+                <p>Un team di esperti è sempre a tua disposizione per risolvere qualsiasi dubbio o problema tecnico.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEZIONE 3: 3 RIQUADRI SCORREVOLI -->
+    <div class="scroll-section">
+        <div class="scroll-container-wrapper">
+            <h2>Dicono di Noi</h2>
+            <div class="scroll-container">
+                <div class="scroll-card">
+                    <h4>Marco R.</h4>
+                    <p>“Il pacchetto Pro ha cambiato completamente il mio modo di lavorare. Servizio eccezionale e super consigliato a tutti!”</p>
+                </div>
+                <div class="scroll-card">
+                    <h4>Elena B.</h4>
+                    <p>“Assistenza clienti impeccabile. Ho avuto un piccolo dubbio configurando l'account e mi hanno risposto nel giro di cinque minuti.”</p>
+                </div>
+                <div class="scroll-card">
+                    <h4>Davide S.</h4>
+                    <p>“Rapporto qualità-prezzo imbattibile rispetto ad altre piattaforme simili provate in passato. Continuate così!”</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
